@@ -23,12 +23,12 @@ export function ProjectItem({ project }: { project: Tables<"projects"> }) {
         onMouseLeave={() => setIsHovered(false)}
         className="rounded-xl overflow-hidden hover:shadow-xl hover:scale-[1.03] transition-all duration-300"
       >
-        <video ref={videoRef} className="aspect-video" muted>
+        <video ref={videoRef} className="aspect-video object-cover"  muted>
           <source src={project.thumbnail_url}></source>
         </video>
         <div className="bg-background p-4">
           <h3 className="text-xl font-bold">{project.title}</h3>
-          <p className="text-muted-foreground">{project.description}</p>
+          <p className="text-muted-foreground line-clamp-2">{project.description}</p>
         </div>
       </div>
     </Link>
