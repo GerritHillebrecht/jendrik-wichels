@@ -2,13 +2,7 @@ export default function VideoPage({ params }: { params: { slug: string } }) {
   return (
     <div className="mx-auto max-w-5xl">
       <h1>Videotitle</h1>
-      {/* <video
-        src={`https://player.vimeo.com/video/321295714?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-        className="aspect-video"
-        autoPlay
-        muted
-        controls
-      ></video> */}
+
       <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
         <iframe
           src="https://player.vimeo.com/video/321295714?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
@@ -23,7 +17,6 @@ export default function VideoPage({ params }: { params: { slug: string } }) {
           title="Lara swiping through Iceland | 4K"
         ></iframe>
       </div>
-      <script src="https://player.vimeo.com/api/player.js"></script>
       <p>Video description</p>
     </div>
   );

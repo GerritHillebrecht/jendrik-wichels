@@ -68,7 +68,7 @@ export default function LandingComponent() {
               Capturing Moments, Telling Stories
             </h1>
             <p className="text-lg md:text-xl text-white max-w-[700px] mt-4">
-              I'm a videographer passionate about creating visually stunning and
+              I&apos;m a videographer passionate about creating visually stunning and
               emotionally captivating videos for businesses and individuals.
             </p>
             <Link
@@ -134,7 +134,7 @@ export default function LandingComponent() {
                     <h3 className="text-xl font-bold">Corporate Video</h3>
                     <p className="text-muted-foreground">
                       A dynamic and engaging corporate video showcasing the
-                      company's products and services.
+                      company&apos;s products and services.
                     </p>
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export default function LandingComponent() {
                     About Me
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    I'm a passionate videographer with over 5 years of
+                    I&apos;m a passionate videographer with over 5 years of
                     experience in creating visually stunning and emotionally
                     captivating videos. I specialize in a variety of video
                     genres, including corporate, wedding, and lifestyle.
@@ -244,11 +244,11 @@ export default function LandingComponent() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Let's Work Together
+                  Let&apos;s Work Together
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I'd love to discuss your video project and how I can help
-                  bring your vision to life. Fill out the form below and I'll
+                  I&apos;d love to discuss your video project and how I can help
+                  bring your vision to life. Fill out the form below and I&apos;ll
                   get back to you as soon as possible.
                 </p>
               </div>
