@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 
 import { Bebas_Neue } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 
@@ -61,7 +62,7 @@ export default function LandingComponent() {
       <main className="flex-1">
         <section className="w-full relative">
           <video className="aspect-[22/8] object-cover" autoPlay muted>
-            <source src="/video/hero/hero-drone.mp4" type="video/mp4" />
+            <source src="https://uwhfzfpqocpx59ex.public.blob.vercel-storage.com/hero-drone-fDRcTObrRaE19taJ3QZgMVj9ri8eGp.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-4 md:px-6">
             <h1 className="text-4xl md:text-6xl font-bold text-white">
@@ -99,7 +100,7 @@ export default function LandingComponent() {
             <div className="mx-auto grid gap-6 py-12 lg:grid-cols-3">
               <Link href={`/video/${"hero-boat.mp4"}`}>
                 <div className="rounded-xl overflow-hidden">
-                  {/* <img
+                  {/* <Image
                   src="/placeholder.svg"
                   width={800}
                   height={450}
@@ -140,7 +141,7 @@ export default function LandingComponent() {
                 </div>
               </Link>
               <div className="rounded-xl overflow-hidden">
-                <img
+                <Image
                   src="/placeholder.svg"
                   width={800}
                   height={450}
@@ -162,7 +163,7 @@ export default function LandingComponent() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div>
-                <img
+                <Image
                   src="/placeholder.svg"
                   width={550}
                   height={550}
