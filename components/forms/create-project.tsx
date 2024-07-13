@@ -19,12 +19,8 @@ import { useState } from "react";
 import { Textarea } from "../ui/textarea";
 import { Loader } from "lucide-react";
 
-const formSchema = z.object({
-  title: z.string().min(2),
-  description: z.string().min(2),
-  thumbnail_url: z.string().url(),
-  video_url: z.string().url(),
-});
+import { formSchema } from "./project-form-data";
+import { addProjectToDatabase } from "./project-form.action";
 
 export function CreateProjectForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,9 +37,7 @@ export function CreateProjectForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    await addProjectToDatabase(values);
     setIsLoading(false);
     console.log(values);
   }
