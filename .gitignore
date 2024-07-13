@@ -9,6 +9,7 @@
 # testing
 /coverage
 
+# no video on gh
 /public/video
 
 # next.js
