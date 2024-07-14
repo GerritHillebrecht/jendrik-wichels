@@ -28,7 +28,7 @@ export function HeroSection() {
           <span className="ml-2 ">Just better visuals.</span>
         </h1>
         <p className="text-lg md:text-xl text-white max-w-[700px] mt-4">
-          Looking for a professional videographer? You've come to the right
+          Looking for a professional videographer? You&apos;ve come to the right
           place.
         </p>
         <div className="flex items-center gap-x-3 mt-6">
