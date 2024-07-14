@@ -2,6 +2,15 @@ import Link from "next/link";
 
 import { Bebas_Neue } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { Instagram } from "lucide-react";
+import VimeoIcon from "@/public/image/icon/vimeo.icon.svg";
+import Image from "next/image";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./tooltip";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 
@@ -18,35 +27,32 @@ export function Navbar() {
         </h1>
         <span className="sr-only">Videographer Portfolio</span>
       </Link>
-      <nav className="ml-auto flex gap-4 sm:gap-6">
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4"
-          prefetch={false}
-        >
-          About
-        </Link>
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4"
-          prefetch={false}
-        >
-          Services
-        </Link>
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4"
-          prefetch={false}
-        >
-          Projects
-        </Link>
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4"
-          prefetch={false}
-        >
-          Contact
-        </Link>
+      <nav className="ml-auto flex items-center gap-4 sm:gap-x-3">
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <Link href="https://vimeo.com/jendrik" target="_blank">
+                <Image
+                  src={VimeoIcon}
+                  alt="Vimeo Icon"
+                  className="rounded aspect-square w-[22px]"
+                />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>Vimeo</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <Link href="https://www.instagram.com/jendrik_wichels" target="_blank">
+                <Instagram size={24} />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent align="end">Instagram</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </nav>
     </header>
   );

@@ -26,7 +26,7 @@ export default async function VideoPage({
   return (
     <section className="relative">
       <div className="video-section relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/60 z-10"></div>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/60 z-10"></div>
         <div className="absolute top-4 left-4 z-20">
           <Link className="flex items-center gap-x-2 text-white" href="/">
             <ChevronLeft />
@@ -37,14 +37,13 @@ export default async function VideoPage({
           className="relative h-[calc(100vh_-_4rem)] w-full object-cover"
           autoPlay
           controls
-          muted
-          poster="/placeholder.svg"
+          controlsList="nodownload"
         >
           <source src={project?.video_url} type="video/mp4" />
         </video>
 
-        <div className="absolute bottom-0 left-0 p-10 z-20 text-white">
-          <div className="editorial flex flex-col gap-3">
+        <div className="pointer-events-none absolute bottom-0 left-0 p-10 z-20 text-white">
+          <div className="editorial flex flex-col gap-3 pb-10">
             <div className="badges flex items-center gap-2">
               <Badge className="w-fit text-white text-xs" variant="outline">
                 ULTRA HD
@@ -54,7 +53,7 @@ export default async function VideoPage({
               </Badge>
             </div>
             <h1 className="font-black text-5xl">{project?.title}</h1>
-            <p className="line-clamp-2 opacity-80">{project?.description}</p>
+            {/* <p className="line-clamp-2 opacity-80">{project?.description}</p> */}
           </div>
         </div>
       </div>

@@ -5,10 +5,10 @@ import { redirect } from "next/navigation";
 export default async function AdminPage() {
   const supabase = createClient();
 
-  //   const { data, error } = await supabase.auth.getUser();
-  //   if (error || !data?.user) {
-  //     redirect("/auth/login");
-  //   }
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    redirect("/auth/login");
+  }
 
   return (
     <div className="mx-auto max-w-4xl py-8">
