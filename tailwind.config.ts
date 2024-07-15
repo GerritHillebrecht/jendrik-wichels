@@ -73,7 +73,9 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontSize: {
-        "80": ["80px", "1.5"],
+        "80": ["80px", "1.125"],
+        "54": ["54px", "1.125"],
+        "36": ["36px", "1.125"],
       },
     },
   },

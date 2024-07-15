@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "../../ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Headline } from "../typography/headline";
 
 export function HeroSection() {
   const heroVideoUrl =
@@ -9,10 +10,15 @@ export function HeroSection() {
 
   return (
     <section className="w-full relative">
-      <video className="aspect-[20/8] object-cover" autoPlay muted loop>
+      <video
+        className="aspect-[20/8] portrait:h-[calc(100svh_-_3.5rem)] object-cover"
+        autoPlay
+        muted
+        loop
+      >
         <source src={heroVideoUrl} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-4 md:px-6">
+      <div className="absolute inset-0 bg-black/50 flex flex-col items-center gap-y-4 justify-center text-center px-4 md:px-6">
         <div className="badge-list flex items-center gap-x-2">
           <Badge variant="outline" className="text-white">
             Filming
@@ -24,14 +30,15 @@ export function HeroSection() {
             Grading
           </Badge>
         </div>
-        <h1 className="text-4xl md:text-80 font-bold text-white">
-          <span className="ml-2 ">Just better visuals.</span>
-        </h1>
-        <p className="text-lg md:text-xl text-white max-w-[700px] mt-4">
+        <Headline className="text-white">
+          <span className="ml-2">Just better visuals.</span>
+        </Headline>
+
+        <p className="text-lg md:text-xl text-white max-w-[700px]">
           Looking for a professional videographer? You&apos;ve come to the right
           place.
         </p>
-        <div className="flex items-center gap-x-3 mt-6">
+        <div className="flex items-center gap-x-3 mt-2">
           <Button>Convince me</Button>
           <Button variant="outline" className="bg-transparent text-background">
             I want you
