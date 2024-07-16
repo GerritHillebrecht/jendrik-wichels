@@ -4,13 +4,19 @@ import { Tables } from "@/types/supabase";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-export function ProjectItem({ project }: { project: Tables<"projects"> }) {
+export function ProjectItem({
+  project,
+  index,
+}: {
+  project: Tables<"projects">;
+  index: number;
+}) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const [perspective, setPerspective] = useState(400);
+  const [perspective, setPerspective] = useState(800);
 
-  const [maxTiltDegreeX, setMaxTiltDegreeX] = useState(10);
-  const [maxTiltDegreeY, setMaxTiltDegreeY] = useState(10);
+  const [maxTiltDegreeX, setMaxTiltDegreeX] = useState(5);
+  const [maxTiltDegreeY, setMaxTiltDegreeY] = useState(5);
 
   const [xPercent, setXPercent] = useState(0);
   const [yPercent, setYPercent] = useState(0);
@@ -31,8 +37,10 @@ export function ProjectItem({ project }: { project: Tables<"projects"> }) {
   return (
     <Link href={`/video/${project.id}`}>
       <div
-        className="group"
-        onMouseLeave={() => {
+        className="group border p-4 pb-0 sm:p-8 sm:pb-0 bg-background/10 backdrop-blur-[2px]"
+        onMouseEnter={(e) => setIsHovered(true)}
+        onMouseLeave={(e) => {
+          setIsHovered(false);
           setXTilt(0);
           setYTilt(0);
         }}
@@ -66,13 +74,8 @@ export function ProjectItem({ project }: { project: Tables<"projects"> }) {
             } as React.CSSProperties
           }
         >
-          <div className="hover:scale-105 transition-all duration-300 border rounded-xl p-4 hover:shadow-lg backdrop-blur-[2px] backdrop-saturate-150">
-            <div
-              // onMouseOver={() => setIsHovered(true)}
-              onMouseEnter={(e) => setIsHovered(true)}
-              onMouseLeave={(e) => setIsHovered(false)}
-              className="relative aspect-video overflow-hidden rounded-[6px] group- transition-shadow duration-300"
-            >
+          <div className="hover:scale-105 transition-all duration-300 border rounded-xl p-2 hover:shadow-lg backdrop-blur-[2px] backdrop-saturate-150">
+            <div className="relative aspect-video overflow-hidden rounded-[6px] transition-shadow duration-300">
               <video
                 ref={videoRef}
                 className="aspect-video object-cover"
@@ -80,15 +83,14 @@ export function ProjectItem({ project }: { project: Tables<"projects"> }) {
                 playsInline
                 muted
               >
-                <source src={project.thumbnail_url}></source>
+                <source src={`${project.thumbnail_url}#t=0.1`}></source>
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0"></div>
-              <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                <h3 className="text-lg font-bold">{project.title}</h3>
-                <p className="line-clamp-1 text-sm">{project.description}</p>
-              </div>
             </div>
           </div>
+        </div>
+        <div className="py-4 -mx-8 px-8">
+          <h3 className="text-lg font-bold">{project.title}</h3>
+          <p className="line-clamp-1 text-sm">{project.description}</p>
         </div>
       </div>
     </Link>

@@ -20,7 +20,7 @@ export function ProjectsSection({
       className={cn("w-full py-12 md:py-16 relative", className)}
     >
       <div className={cn("absolute inset-0", styles.projects)}></div>
-      <div className="container px-4 md:px-6 relative z-10">
+      <div className="relative z-10">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-80">
@@ -32,9 +32,9 @@ export function ProjectsSection({
             </p>
           </div>
         </div>
-        <div className="mx-auto grid gap-6 py-12 lg:grid-cols-3">
+        <div className="mx-auto grid py-12 sm:grid-cols-2 lg:grid-cols-3">
           {projects?.map((project, index) => (
-            <ProjectItem project={project} key={index} />
+            <ProjectItem index={index} project={project} key={index} />
           ))}
         </div>
         <Link href="/projects" className={buttonVariants({ variant: "link" })}>

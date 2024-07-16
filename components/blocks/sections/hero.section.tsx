@@ -1,20 +1,28 @@
-import Link from "next/link";
-import { Button } from "../../ui/button";
+"use client";
+
 import { Badge } from "@/components/ui/badge";
+import { Button } from "../../ui/button";
 import { Headline } from "../typography/headline";
+import { useEffect, useRef } from "react";
 
 export function HeroSection() {
-  const heroVideoUrl =
-    "https://uwhfzfpqocpx59ex.public.blob.vercel-storage.com/6243583_Snow%20Winter%20Chugach%20Alaska_By_Etienne_Claret_Artlist_HD-8qRBKokXxJE8MH702JDDAOaaZq2DKh.mp4";
+  // const heroVideoUrl =
+  //   "https://player.vimeo.com/progressive_redirect/playback/379362309/rendition/1080p/file.mp4?loc=external&log_user=0&signature=63beaf68deed6ec3c35082d2baeef3d20e293169dbae02a5be1e25922211b14f";
+  // const heroVideoUrl =
+  //   "https://uwhfzfpqocpx59ex.public.blob.vercel-storage.com/6243583_Snow%20Winter%20Chugach%20Alaska_By_Etienne_Claret_Artlist_HD-8qRBKokXxJE8MH702JDDAOaaZq2DKh.mp4";
   // const heroVideoUrl = "https://uwhfzfpqocpx59ex.public.blob.vercel-storage.com/hero-drone-fDRcTObrRaE19taJ3QZgMVj9ri8eGp.mp4"
+  const heroVideoUrl = "/video/hero/hero-helicopter.mp4"
 
   return (
-    <section className="w-full relative">
+    <section
+      className="w-full relative"
+    >
       <video
         className="aspect-[20/8] portrait:h-[calc(100svh_-_3.5rem)] object-cover"
         autoPlay
         muted
         loop
+        playsInline
       >
         <source src={heroVideoUrl} type="video/mp4" />
       </video>
