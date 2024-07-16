@@ -48,7 +48,7 @@ export function ProjectItem({
         )}
         style={
           {
-            "-webkit-backdrop-filter": "blur(2px)",
+            WebkitBackdropFilter: "blur(2px)",
           } as React.CSSProperties
         }
         onMouseEnter={(e) => setIsHovered(true)}
