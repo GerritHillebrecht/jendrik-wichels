@@ -1,6 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { Tables } from "@/types/supabase";
+import { Loader } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -11,6 +13,7 @@ export function ProjectItem({
   project: Tables<"projects">;
   index: number;
 }) {
+  const [isLoading, setIsLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
   const [perspective, setPerspective] = useState(800);
@@ -35,9 +38,19 @@ export function ProjectItem({
   }, [isHovered]);
 
   return (
-    <Link href={`/video/${project.id}`}>
+    <Link
+      href={`/video/${project.id}`}
+      className="border-b first-of-type:border-t sm:border-r sm:[&:nth-child(-n+2)]:border-t sm:[&:nth-child(2)]:border-r-0  lg:[&:nth-child(2)]:border-r  lg:[&:nth-child(-n+3)]:border-t lg:[&:nth-child(3)]:border-r-0"
+    >
       <div
-        className="group border p-4 pb-0 sm:p-8 sm:pb-0 bg-background/10 backdrop-blur-[2px]"
+        className={cn(
+          "group p-4 pb-0 sm:p-8 sm:pb-0 bg-background/10 backdrop-blur-xl sm:backdrop-blur-[3px]"
+        )}
+        style={
+          {
+            "-webkit-backdrop-filter": "blur(2px)",
+          } as React.CSSProperties
+        }
         onMouseEnter={(e) => setIsHovered(true)}
         onMouseLeave={(e) => {
           setIsHovered(false);
@@ -75,13 +88,23 @@ export function ProjectItem({
           }
         >
           <div className="hover:scale-105 transition-all duration-300 border rounded-xl p-2 hover:shadow-lg backdrop-blur-[2px] backdrop-saturate-150">
-            <div className="relative aspect-video overflow-hidden rounded-[6px] transition-shadow duration-300">
+            <div className="relative aspect-video overflow-hidden rounded-[6px]">
+              {isLoading && (
+                <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
+                  <Loader size={32} className="animate-spin" />
+                </div>
+              )}
               <video
                 ref={videoRef}
+                onLoadStart={(e) => setIsLoading(true)}
+                onCanPlay={(e) => setIsLoading(false)}
+                onLoadedData={(e) => setIsLoading(false)}
+                onLoadedMetadata={(e) => setIsLoading(false)}
                 className="aspect-video object-cover"
                 controlsList="nodownload"
                 playsInline
                 muted
+                preload="metadata"
               >
                 <source src={`${project.thumbnail_url}#t=0.1`}></source>
               </video>
