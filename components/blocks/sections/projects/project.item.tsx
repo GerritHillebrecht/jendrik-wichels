@@ -91,7 +91,7 @@ export function ProjectItem({
             <div className="relative aspect-video overflow-hidden rounded-[6px]">
               {isLoading && (
                 <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
-                  <Loader size={32} className="animate-spin" />
+                  <Loader size={24} className="animate-spin" />
                 </div>
               )}
               <video
