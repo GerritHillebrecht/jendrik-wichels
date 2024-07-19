@@ -21,9 +21,6 @@ export function ProjectItem({
   const [maxTiltDegreeX, setMaxTiltDegreeX] = useState(10);
   const [maxTiltDegreeY, setMaxTiltDegreeY] = useState(10);
 
-  const [xPercent, setXPercent] = useState(0);
-  const [yPercent, setYPercent] = useState(0);
-
   const [xTilt, setXTilt] = useState(0);
   const [yTilt, setYTilt] = useState(0);
 
@@ -74,9 +71,6 @@ export function ProjectItem({
 
             const percentX = distanceX / centerX;
             const percentY = distanceY / centerY;
-
-            setXPercent(percentX);
-            setYPercent(percentY);
 
             setXTilt(percentX * maxTiltDegreeX);
             setYTilt(percentY * maxTiltDegreeY);
