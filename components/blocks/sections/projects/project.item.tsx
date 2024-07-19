@@ -16,10 +16,10 @@ export function ProjectItem({
   const [isLoading, setIsLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
-  const [perspective, setPerspective] = useState(800);
+  const [perspective, setPerspective] = useState(600);
 
-  const [maxTiltDegreeX, setMaxTiltDegreeX] = useState(5);
-  const [maxTiltDegreeY, setMaxTiltDegreeY] = useState(5);
+  const [maxTiltDegreeX, setMaxTiltDegreeX] = useState(10);
+  const [maxTiltDegreeY, setMaxTiltDegreeY] = useState(10);
 
   const [xPercent, setXPercent] = useState(0);
   const [yPercent, setYPercent] = useState(0);
@@ -49,6 +49,7 @@ export function ProjectItem({
         style={
           {
             WebkitBackdropFilter: "blur(2px)",
+            perspective: `${perspective}px`,
           } as React.CSSProperties
         }
         onMouseEnter={(e) => setIsHovered(true)}
@@ -83,18 +84,25 @@ export function ProjectItem({
           className="transition-transform group-hover:transition-none"
           style={
             {
-              transform: `rotateY(${xTilt}deg) perspective(${perspective}px) rotateX(${-yTilt}deg)`,
+              transform: `rotateY(${xTilt}deg) rotateX(${-yTilt}deg)`,
             } as React.CSSProperties
           }
         >
-          <div className="hover:scale-105 transition-all duration-300 border rounded-xl p-2 hover:shadow-lg backdrop-blur-[2px] backdrop-saturate-150">
-            <div className="relative aspect-video overflow-hidden rounded-[6px]">
+          <div
+            style={{ transformStyle: "preserve-3d" }}
+            className="hover:scale-105 transition-all duration-300 border rounded-xl p-2 hover:shadow-lg backdrop-blur-[2px] backdrop-saturate-150"
+          >
+            <div
+              style={{ transformStyle: "preserve-3d" }}
+              className="relative aspect-video overflow-hidden rounded-[6px]"
+            >
               {isLoading && (
                 <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
                   <Loader size={24} className="animate-spin" />
                 </div>
               )}
               <video
+                style={{ transformStyle: "preserve-3d" }}
                 ref={videoRef}
                 onLoadStart={(e) => setIsLoading(true)}
                 onCanPlay={(e) => setIsLoading(false)}

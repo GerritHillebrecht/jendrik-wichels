@@ -15,7 +15,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="w-full relative"
+      className="w-full relative aspect-[20/8] portrait:h-[calc(100svh_-_3.5rem)]"
     >
       <video
         className="aspect-[20/8] portrait:h-[calc(100svh_-_3.5rem)] object-cover"
