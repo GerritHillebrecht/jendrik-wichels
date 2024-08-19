@@ -18,8 +18,8 @@ export function ProjectItem({
 
   const [perspective, setPerspective] = useState(600);
 
-  const [maxTiltDegreeX, setMaxTiltDegreeX] = useState(10);
-  const [maxTiltDegreeY, setMaxTiltDegreeY] = useState(10);
+  const [maxTiltDegreeX, setMaxTiltDegreeX] = useState(3.5);
+  const [maxTiltDegreeY, setMaxTiltDegreeY] = useState(2.5);
 
   const [xTilt, setXTilt] = useState(0);
   const [yTilt, setYTilt] = useState(0);

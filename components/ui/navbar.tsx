@@ -11,12 +11,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./tooltip";
+import { ThemeSelector } from "./theme-selector";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 
 export function Navbar() {
   return (
-    <header className="px-4 lg:px-6 h-14 sm:h-16 flex items-center sticky top-0 z-50 bg-white/80 backdrop-blur backdrop-saturate-150 shadow">
+    <header className="px-4 lg:px-6 h-14 sm:h-16 flex border-b items-center sticky top-0 z-50 bg-white/80 dark:bg-background/80 backdrop-blur backdrop-saturate-150 shadow">
       <Link
         href="/"
         className="flex items-center justify-center"
@@ -35,7 +36,7 @@ export function Navbar() {
                 <Image
                   src={VimeoIcon}
                   alt="Vimeo Icon"
-                  className="rounded aspect-square w-[22px]"
+                  className="rounded aspect-square w-[22px] dark:invert"
                 />
               </Link>
             </TooltipTrigger>
@@ -46,13 +47,17 @@ export function Navbar() {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
-              <Link href="https://www.instagram.com/jendrik_wichels" target="_blank">
+              <Link
+                href="https://www.instagram.com/jendrik_wichels"
+                target="_blank"
+              >
                 <Instagram size={24} />
               </Link>
             </TooltipTrigger>
             <TooltipContent align="end">Instagram</TooltipContent>
           </Tooltip>
         </TooltipProvider>
+        <ThemeSelector />
       </nav>
     </header>
   );

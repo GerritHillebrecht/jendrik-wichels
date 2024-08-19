@@ -3,18 +3,25 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: "https",
         hostname: "territory.de",
-        protocol: "https",
       },
       {
+        protocol: "https",
         hostname: "www.innovation-group.parts",
-        protocol: "https",
       },
       {
-        hostname: "cdn.iconscout.com",
         protocol: "https",
-      }
+        hostname: "cdn.iconscout.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
     ],
+  },
+  experimental: {
+    taint: true,
   },
 };
 
