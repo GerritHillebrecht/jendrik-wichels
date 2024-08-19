@@ -23,7 +23,7 @@ export function Navbar() {
         className="flex items-center justify-center"
         prefetch={false}
       >
-        <h1 className={cn("uppercase text-3xl", bebas.className)}>
+        <h1 className={cn("uppercase text-3xl mt-1", bebas.className)}>
           Jendrik Wichels
         </h1>
         <span className="sr-only">Videographer Portfolio</span>

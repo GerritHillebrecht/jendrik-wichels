@@ -9,7 +9,7 @@ const clientWithToken = client.withConfig({ token });
 
 export async function GET(request: NextRequest) {
   if (!process.env.NEXT_PUBLIC_SANITY_READ_TOKEN) {
-    return new Response("Missing environment variable SANITY_API_READ_TOKEN", {
+    return new Response("Missing environment variable NEXT_PUBLIC_SANITY_READ_TOKEN", {
       status: 500,
     });
   }

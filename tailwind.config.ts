@@ -96,6 +96,14 @@ const config = {
             "background-position": "var(--bg-size, 300%) 0",
           },
         },
+        ripple: {
+          "0%, 100%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+          "50%": {
+            transform: "translate(-50%, -50%) scale(0.9)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -103,6 +111,7 @@ const config = {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         shimmer: "shimmer 8s infinite",
         gradient: "gradient 8s linear infinite",
+        ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
       },
       fontSize: {
         "80": ["80px", "1.125"],

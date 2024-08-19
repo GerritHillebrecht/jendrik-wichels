@@ -1,5 +1,6 @@
 "use client";
 
+import { BorderBeam } from "@/components/magicui/border-beam";
 import { cn } from "@/lib/utils";
 import { Tables } from "@/types/supabase";
 import { Loader } from "lucide-react";
@@ -37,11 +38,11 @@ export function ProjectItem({
   return (
     <Link
       href={`/video/${project.id}`}
-      className="border-b first-of-type:border-t sm:border-r sm:[&:nth-child(-n+2)]:border-t sm:[&:nth-child(2)]:border-r-0  lg:[&:nth-child(2)]:border-r  lg:[&:nth-child(-n+3)]:border-t lg:[&:nth-child(3)]:border-r-0"
+      className="relative border-b first-of-type:border-t sm:border-r sm:[&:nth-child(-n+2)]:border-t sm:[&:nth-child(2)]:border-r-0  lg:[&:nth-child(2)]:border-r  lg:[&:nth-child(-n+3)]:border-t lg:[&:nth-child(3)]:border-r-0"
     >
       <div
         className={cn(
-          "group p-4 pb-0 sm:p-8 sm:pb-0 bg-background/10 backdrop-blur-xl sm:backdrop-blur-[3px]"
+          "group p-4 pb-0 sm:p-8 sm:pb-0 bg-background/10 backdrop-blur-xl sm:backdrop-blur-[3px] relative"
         )}
         style={
           {
@@ -86,6 +87,7 @@ export function ProjectItem({
             style={{ transformStyle: "preserve-3d" }}
             className="hover:scale-105 transition-all duration-300 border rounded-xl p-2 hover:shadow-lg backdrop-blur-[2px] backdrop-saturate-150"
           >
+            <BorderBeam className="hidden group-hover:block" />
             <div
               style={{ transformStyle: "preserve-3d" }}
               className="relative aspect-video overflow-hidden rounded-[6px]"

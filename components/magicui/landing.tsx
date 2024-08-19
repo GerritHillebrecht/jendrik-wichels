@@ -26,7 +26,7 @@ export function Landing() {
         />
         <section className="relative py-12">
           <video
-            className="absolute inset-0 w-full h-full object-cover z-[-1] opacity-40 dark:opacity-20"
+            className="absolute inset-0 w-full h-full object-cover z-[-1] opacity-40 dark:opacity-30"
             autoPlay
             muted
             loop
