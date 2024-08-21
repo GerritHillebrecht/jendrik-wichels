@@ -68,6 +68,35 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Project = {
+  _id: string;
+  _type: "project";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  video?: string;
+  desc?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Post = {
   _id: string;
   _type: "post";
@@ -278,7 +307,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Project | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: POSTS_QUERY
@@ -334,5 +363,37 @@ export type POST_QUERYResult = {
     alt?: string;
     _type: "image";
   } | null;
+} | null;
+// Variable: PROJECTS_QUERY
+// Query: *[_type == "project" && defined(slug.current)][0...12]{  _id, title, slug, video}
+export type PROJECTS_QUERYResult = Array<{
+  _id: string;
+  title: null;
+  slug: Slug | null;
+  video: string | null;
+}>;
+// Variable: PROJECT_QUERY
+// Query: *[_type == "project" && slug.current == $slug][0]{  title, desc, video}
+export type PROJECT_QUERYResult = {
+  title: null;
+  desc: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  video: string | null;
 } | null;
 

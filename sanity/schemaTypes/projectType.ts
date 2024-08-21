@@ -8,7 +8,8 @@ export const projectType = defineType({
   icon: ImagesIcon,
   fields: [
     defineField({
-      name: "name",
+      name: "title",
+      title: "Titel",
       type: "string",
     }),
     defineField({
@@ -24,13 +25,13 @@ export const projectType = defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: "image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
+    // defineField({
+    //   name: "image",
+    //   type: "image",
+    //   options: {
+    //     hotspot: true,
+    //   },
+    // }),
     defineField({
       name: "desc",
       title: "Beschreibung",

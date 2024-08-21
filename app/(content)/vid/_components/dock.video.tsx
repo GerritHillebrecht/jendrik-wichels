@@ -93,9 +93,9 @@ const DATA = {
 
 export function VideoDock() {
   return (
-    <div className="fixed bottom-4 flex justify-center w-full">
+    <div className="fixed bottom-4 flex justify-center w-full z-50 pointer-events-none">
       <TooltipProvider>
-        <Dock direction="middle">
+        <Dock direction="middle" className="pointer-events-auto">
           {DATA.navbar.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>
