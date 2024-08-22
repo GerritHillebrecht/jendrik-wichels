@@ -9,7 +9,7 @@ export function HeroHomeSection() {
     "https://player.vimeo.com/progressive_redirect/playback/998718007/rendition/1440p/file.mp4?loc=external&log_user=0&signature=f942d65433f734af1a39405eed8ea9cbf63148b6645f3660b3d7290e2a69e8af";
 
   return (
-    <section className="relative py-12">
+    <section className="relative py-12 border-b shadow-xl">
       <Particles
         className="absolute h-full max-h-screen top-0"
         quantity={100}

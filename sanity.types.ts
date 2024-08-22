@@ -74,7 +74,7 @@ export type Project = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name?: string;
+  title?: string;
   slug?: Slug;
   video?: string;
   desc?: Array<{
@@ -368,14 +368,14 @@ export type POST_QUERYResult = {
 // Query: *[_type == "project" && defined(slug.current)][0...12]{  _id, title, slug, video}
 export type PROJECTS_QUERYResult = Array<{
   _id: string;
-  title: null;
+  title: string | null;
   slug: Slug | null;
   video: string | null;
 }>;
 // Variable: PROJECT_QUERY
 // Query: *[_type == "project" && slug.current == $slug][0]{  title, desc, video}
 export type PROJECT_QUERYResult = {
-  title: null;
+  title: string | null;
   desc: Array<{
     children?: Array<{
       marks?: Array<string>;
