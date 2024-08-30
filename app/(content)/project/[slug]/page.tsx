@@ -84,7 +84,7 @@ export default async function Page({ params }: { params: QueryParams }) {
                   <CardHeader>
                     <CardTitle>{project?.title}</CardTitle>
                     <CardDescription className="line-clamp-2">
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </CardDescription>
                   </CardHeader>
                 </Card>

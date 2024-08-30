@@ -16,9 +16,9 @@ export default function AboutMeSection() {
               at a time.
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Hello! I'm Alex Morgan, a passionate videographer with an eye for
+              Hello! I&apos;m Alex Morgan, a passionate videographer with an eye for
               detail and a heart for storytelling. With over a decade of
-              experience, I've had the privilege of working on diverse projects,
+              experience, I&apos;ve had the privilege of working on diverse projects,
               from intimate weddings to large-scale corporate events.
             </p>
             <div className="grid grid-cols-2 gap-4">

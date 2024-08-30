@@ -25,14 +25,14 @@ export default function AboutMeSection({ className }: { className?: string }) {
               className="text-4xl lg:text-5xl font-bold text-foreground leading-tight"
               style={{ "--bg-size": "300%" } as CSSProperties}
             >
-              Capturing life's moments, one{" "}
+              Capturing life&apos;s moments, one{" "}
               <span className="animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent inline">
                 frame
               </span>{" "}
               at a time.
             </h2>
             <p className="text-lg text-foreground/70">
-              Hi, I'm Alex Morgan, a passionate videographer with over a decade
+              Hi, I&apos;m Alex Morgan, a passionate videographer with over a decade
               of experience in turning fleeting moments into timeless memories.
               My journey behind the lens has taken me from intimate weddings to
               grand corporate events, always with the same goal: to tell
