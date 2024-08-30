@@ -2,18 +2,13 @@
 
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { cn } from "@/lib/utils";
-import { Tables } from "@/types/supabase";
+import { Project } from "@/sanity.types";
 import { Loader } from "lucide-react";
+import { PortableText } from "next-sanity";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-export function ProjectItem({
-  project,
-  index,
-}: {
-  project: Tables<"projects">;
-  index: number;
-}) {
+export function ProjectItem({ project }: { project: Project }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -37,7 +32,7 @@ export function ProjectItem({
 
   return (
     <Link
-      href={`/video/${project.id}`}
+      href={`/project/${project.slug?.current}`}
       className="relative border-b first-of-type:border-t sm:border-r sm:[&:nth-child(-n+2)]:border-t sm:[&:nth-child(2)]:border-r-0  lg:[&:nth-child(2)]:border-r  lg:[&:nth-child(-n+3)]:border-t lg:[&:nth-child(3)]:border-r-0"
     >
       <div
@@ -110,14 +105,20 @@ export function ProjectItem({
                 muted
                 preload="metadata"
               >
-                <source src={`${project.thumbnail_url}#t=0.1`}></source>
+                <source src={`${project.thumbnail}#t=0.1`}></source>
               </video>
             </div>
           </div>
         </div>
         <div className="py-4 -mx-8 px-8">
           <h3 className="text-lg font-bold">{project.title}</h3>
-          <p className="line-clamp-1 text-sm">{project.description}</p>
+          <div className="line-clamp-2">
+            {project?.desc && (
+              <>
+                <PortableText value={project.desc} />
+              </>
+            )}
+          </div>
         </div>
       </div>
     </Link>

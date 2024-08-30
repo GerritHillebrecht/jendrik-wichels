@@ -1,20 +1,22 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Tables } from "@/types/supabase";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ProjectItem } from "./project.item";
 
-import styles from "./projects.module.scss";
 import DotPattern from "@/components/magicui/dot-pattern";
+import {
+  Project,
+  PROJECTS_QUERYResult
+} from "@/sanity.types";
+import { sanityFetch } from "@/sanity/lib/client";
+import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 
-export function ProjectsSection({
-  projects,
-  className,
-}: {
-  projects: Tables<"projects">[] | null;
-  className?: string;
-}) {
+export async function ProjectsSection({ className }: { className?: string }) {
+  const projects = await sanityFetch<PROJECTS_QUERYResult>({
+    query: PROJECTS_QUERY,
+  });
+
   return (
     <section
       id="projects"
@@ -40,7 +42,7 @@ export function ProjectsSection({
         </div>
         <div className="mx-auto grid py-12 sm:grid-cols-2 lg:grid-cols-3">
           {projects?.map((project, index) => (
-            <ProjectItem index={index} project={project} key={index} />
+            <ProjectItem project={project as Project} key={index} />
           ))}
         </div>
         <Link href="/projects" className={buttonVariants({ variant: "link" })}>

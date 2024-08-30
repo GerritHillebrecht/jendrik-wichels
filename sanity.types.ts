@@ -68,6 +68,32 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Work = {
+  _id: string;
+  _type: "work";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  jobtitle?: string;
+  slug?: Slug;
+  employer?: string;
+  employerLogo?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  location?: string;
+  date?: string;
+  link?: string;
+};
+
 export type Project = {
   _id: string;
   _type: "project";
@@ -77,6 +103,7 @@ export type Project = {
   title?: string;
   slug?: Slug;
   video?: string;
+  thumbnail?: string;
   desc?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -84,7 +111,7 @@ export type Project = {
       _type: "span";
       _key: string;
     }>;
-    style?: "normal";
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
     listItem?: never;
     markDefs?: Array<{
       href?: string;
@@ -307,7 +334,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Project | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Work | Project | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: POSTS_QUERY
@@ -383,7 +410,7 @@ export type PROJECT_QUERYResult = {
       _type: "span";
       _key: string;
     }>;
-    style?: "normal";
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
     listItem?: never;
     markDefs?: Array<{
       href?: string;

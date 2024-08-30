@@ -120,7 +120,11 @@ const config = {
       },
     },
   },
-  plugins: ["prettier-plugin-tailwindcss", require("tailwindcss-animate")],
+  plugins: [
+    "prettier-plugin-tailwindcss",
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+  ],
 } satisfies Config;
 
 export default config;

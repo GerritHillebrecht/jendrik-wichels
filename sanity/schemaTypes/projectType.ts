@@ -16,12 +16,18 @@ export const projectType = defineType({
       name: "slug",
       type: "slug",
       options: {
-        source: "name",
+        source: "title",
       },
     }),
     defineField({
       name: "video",
       title: "Video URL (z.B. Vimeo)",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "thumbnail",
+      title: "Thumbnail URL (z.B. Vimeo)",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
@@ -38,8 +44,8 @@ export const projectType = defineType({
       type: "array",
       of: [
         defineArrayMember({
+          title: "Block",
           type: "block",
-          styles: [{ title: "Normal", value: "normal" }],
           lists: [],
         }),
       ],
@@ -47,7 +53,7 @@ export const projectType = defineType({
   ],
   preview: {
     select: {
-      title: "name",
+      title: "title",
       media: "image",
       subtitle: "desc",
     },

@@ -11,9 +11,9 @@ export const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{
 }`;
 
 export const PROJECTS_QUERY = groq`*[_type == "project" && defined(slug.current)][0...12]{
-  _id, title, slug, video
+  _id, title, desc, slug, video, thumbnail
 }`;
 
 export const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0]{
-  title, desc, video
+  _id, title, desc, video, thumbnail
 }`;

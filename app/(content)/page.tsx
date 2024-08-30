@@ -6,6 +6,7 @@ import {
   ProjectsSection,
   ServicesSection
 } from "@/components/blocks/sections";
+import AboutMeSection from "@/components/blocks/sections/about-me.v0.v2.section";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function LandingPage() {
@@ -20,7 +21,8 @@ export default async function LandingPage() {
     <main>
       <HeroHomeSection />
       <ProjectsSection className="border-b" projects={projects} />
-      <AboutSection className="border-b" />
+      <AboutMeSection className="border-b" />
+      {/* <AboutSection className="border-b" /> */}
       <ExperienceSection className="border-b" />
       <ServicesSection className="border-b" />
       <ContactSection />
