@@ -9,7 +9,7 @@ export default function AboutMeSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight">
-              Capturing life's moments, one{" "}
+              Capturing life&apos;s moments, one{" "}
               <span className="text-transparent block bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
                 frame
               </span>{" "}
