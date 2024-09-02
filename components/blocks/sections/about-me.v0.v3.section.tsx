@@ -1,5 +1,6 @@
 "use client";
 
+import RetroGrid from "@/components/magicui/retro-grid";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { FileVideo, Award, Users } from "lucide-react";
@@ -13,10 +14,13 @@ export default function AboutMeTooSection({
   return (
     <section
       className={cn(
-        "bg-gradient-to-bl from-transparent to-gray-100 dark:from-transparent dark:to-neutral-950 py-16 px-4 sm:px-6 lg:px-8",
+        "relative bg-gradient-to-bl from-transparent to-gray-100 dark:from-transparent dark:to-neutral-950 py-16 px-4 sm:px-6 lg:px-8",
         className
       )}
     >
+      <div className="absolute inset-0">
+        <RetroGrid />
+      </div>
       <div className="max-w-6xl mx-auto py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

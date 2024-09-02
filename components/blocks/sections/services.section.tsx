@@ -1,9 +1,15 @@
 import { cn } from "@/lib/utils";
 import { Badge } from "../../ui/badge";
+import RetroGrid from "@/components/magicui/retro-grid";
 
 export function ServicesSection({ className }: { className?: string }) {
   return (
-    <section className={cn("w-full py-12 md:py-24 lg:py-32", className)}>
+    <section
+      className={cn("relative w-full py-12 md:py-24 lg:py-32 isolate", className)}
+    >
+      <div className="absolute inset-0 -z-[1]">
+        <RetroGrid />
+      </div>
       <div className="container space-y-12 px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -59,7 +65,8 @@ export function ServicesSection({ className }: { className?: string }) {
           <div className="grid gap-1">
             <h3 className="text-lg font-bold">Make the logo bigger</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              So <span className="text-6xl font-black">GROSS</span> wie ihr wollt.
+              So <span className="text-6xl font-black">GROSS</span> wie ihr
+              wollt.
             </p>
           </div>
         </div>

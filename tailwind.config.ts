@@ -104,6 +104,10 @@ const config = {
             transform: "translate(-50%, -50%) scale(0.9)",
           },
         },
+        grid: {
+          "0%": { transform: "translateY(-50%)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -112,6 +116,7 @@ const config = {
         shimmer: "shimmer 8s infinite",
         gradient: "gradient 8s linear infinite",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+        grid: "grid 15s linear infinite",
       },
       fontSize: {
         "80": ["80px", "1.125"],

@@ -15,7 +15,7 @@ export default function AboutMeSection({ className }: { className?: string }) {
         x={-1}
         y={-1}
         className={cn(
-          "opacity-30 [mask-image:radial-gradient(50vw_circle_at_center,white,transparent)]"
+          "opacity-20 [mask-image:radial-gradient(50vw_circle_at_center,white,transparent)]"
         )}
       />
       <div className="max-w-6xl mx-auto py-20">
