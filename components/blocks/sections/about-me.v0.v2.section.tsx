@@ -1,5 +1,6 @@
 "use client";
 
+import GridPattern from "@/components/magicui/grid-pattern";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { FileVideo, Award, Users } from "lucide-react";
@@ -9,10 +10,19 @@ export default function AboutMeSection({ className }: { className?: string }) {
   return (
     <section
       className={cn(
-        "bg-gradient-to-br from-transparent to-gray-100 dark:from-transparent dark:to-neutral-950 py-16 px-4 sm:px-6 lg:px-8",
+        "relative from-transparent bg-neutral-200 dark:bg-neutral-800 to-gray-100 dark:from-transparent dark:to-neutral-950 py-16 px-4 sm:px-6 lg:px-8",
         className
       )}
     >
+      <GridPattern
+        width={20}
+        height={20}
+        x={-1}
+        y={-1}
+        className={cn(
+          "opacity-30 [mask-image:radial-gradient(50vw_circle_at_center,white,transparent)]"
+        )}
+      />
       <div className="max-w-6xl mx-auto py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,41 +42,41 @@ export default function AboutMeSection({ className }: { className?: string }) {
               at a time.
             </h2>
             <p className="text-lg text-foreground/70">
-              Hi, I&apos;m Alex Morgan, a passionate videographer with over a decade
-              of experience in turning fleeting moments into timeless memories.
-              My journey behind the lens has taken me from intimate weddings to
-              grand corporate events, always with the same goal: to tell
-              compelling visual stories that resonate.
+              Jendrik Wichels ist ein leidenschaftlicher Filmemacher aus
+              Hamburg. Nach dem Filmstudium sammelte er bereits jahrelange und
+              diverse Erfahrung an Filmsets von Serien, Filmen und Werbedrehs,
+              weitere interessante Schritte mit einer eigenen Filmproduktion und
+              einer Festanstellung in einer Werbeagentur (Territory) folgten.
+              Hier wurden Projekte für Kunden wie Hornbach, Porsche, Levis, St.
+              Pauli, Lufthansa und viele weitere umgesetzt. Egal ob Konzept,
+              Dreh oder Schnitt - Jendrik kann mit vielfältigen Fähigkeiten
+              unterstützen und umsetzen.
             </p>
-            <div className="flex space-x-8 text-foreground/70">
-              <div className="flex items-center space-x-2">
-                <FileVideo className="w-6 h-6 text-indigo-600" />
-                <span className="font-semibold">500+ Projects</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Award className="w-6 h-6 text-indigo-600" />
-                <span className="font-semibold">15 Awards</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Users className="w-6 h-6 text-indigo-600" />
-                <span className="font-semibold">300+ Clients</span>
-              </div>
+            <div className="text-foreground/70">
+              <blockquote className="mt-6 border-l-2 border-l-red-400 pl-6 italic">
+                &raquo;&nbsp;Ich kenne niemanden, der mit so viel Herzblut in
+                jedes Projekt geht und selber erst happy ist, wenn wirklich alle
+                Beteiligten zufrieden sind. Er kommuniziert immer freundlich und
+                zielorientiert und liefert auch in kleinen Teams großartige
+                Ergebnisse. 😉&nbsp;&laquo;
+              </blockquote>
+              <span className="block mt-4">
+                Hat bis jetzt wahrscheinlich niemand genau so gesagt, aber so
+                würde ich es mir auf jeden Fall selber erhoffen
+              </span>
+              <span className="block mt-2 italic">Jendrik Wichels</span>
             </div>
           </div>
-          <div className="relative h-full">
+          <div className="relative h-full aspect-square md:aspect-auto">
             <motion.img
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              src="/image/profile-jendrik.png"
-              alt="Alex Morgan, Videographer"
-              className="rounded-lg shadow-2xl absolute inset-0 w-full h-full object-cover block"
+              src="/image/profile-action.jpg"
+              // src="/image/profile-jendrik.png"
+              alt="Jendrik Wichels, Videographer"
+              className="rounded-lg shadow absolute inset-0 w-full h-full object-cover object-right block"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
-              <p className="text-gray-800 font-semibold">
-                10+ Years Experience
-              </p>
-            </div>
           </div>
         </motion.div>
       </div>

@@ -5,3 +5,4 @@ export * from "./projects.section";
 export * from "./services.section";
 export * from "./experience.section";
 export * from "./hero.home.section";
+export * from "./about-me.v0.v3.section";

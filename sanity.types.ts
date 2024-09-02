@@ -104,6 +104,17 @@ export type Project = {
   slug?: Slug;
   video?: string;
   thumbnail?: string;
+  cover?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   desc?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -392,7 +403,7 @@ export type POST_QUERYResult = {
   } | null;
 } | null;
 // Variable: PROJECTS_QUERY
-// Query: *[_type == "project" && defined(slug.current)][0...12]{  _id, title, desc, slug, video, thumbnail}
+// Query: *[_type == "project" && defined(slug.current)][0...6]{  _id, title, desc, slug, video, thumbnail} | order(_updatedAt desc)
 export type PROJECTS_QUERYResult = Array<{
   _id: string;
   title: string | null;

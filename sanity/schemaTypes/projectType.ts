@@ -31,6 +31,15 @@ export const projectType = defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: "cover",
+      title: "Cover",
+      type: "image",
+      validation: (Rule) => Rule.required(),
+      options: {
+        hotspot: true,
+      },
+    }),
     // defineField({
     //   name: "image",
     //   type: "image",

@@ -4,6 +4,7 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 import Ripple from "@/components/magicui/ripple";
 import { cn } from "@/lib/utils";
 import { Project } from "@/sanity.types";
+import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -51,11 +52,14 @@ export function ProjectItem({ project }: { project: Project }) {
   return (
     <Link
       href={`/project/${project.slug?.current}`}
-      className="relative overflow-hidden border-b first-of-type:border-t sm:border-r sm:[&:nth-child(-n+2)]:border-t sm:[&:nth-child(2)]:border-r-0  lg:[&:nth-child(2)]:border-r  lg:[&:nth-child(-n+3)]:border-t lg:[&:nth-child(3)]:border-r-0"
+      className="relative bg-background/80 overflow-hidden border-b first-of-type:border-t sm:border-r sm:[&:nth-child(-n+2)]:border-t sm:[&:nth-child(2)]:border-r-0  lg:[&:nth-child(2)]:border-r  lg:[&:nth-child(-n+3)]:border-t lg:[&:nth-child(3)]:border-r-0"
     >
+      {/* <pre>
+        <code>{JSON.stringify(urlFor(project.cover!.asset!._ref).url())}</code>
+      </pre> */}
       <div
         className={cn(
-          "group p-4 pb-0 sm:p-8 sm:pb-0 bg-background/10 backdrop-blur-xl sm:backdrop-blur-[3px] relative"
+          "group p-4 pb-0 sm:p-8 sm:pb-0 relative"
         )}
         style={
           {
@@ -79,10 +83,9 @@ export function ProjectItem({ project }: { project: Project }) {
             } as React.CSSProperties
           }
         >
-          
           <div
             style={{ transformStyle: "preserve-3d" }}
-            className="hover:scale-105 transition-all duration-300 border rounded-xl p-2 hover:shadow-lg backdrop-blur-[2px] backdrop-saturate-150"
+            className="hover:scale-105 transition-all duration-300 border rounded-xl p-2 hover:shadow-lg"
           >
             <BorderBeam className="hidden group-hover:block" />
             <div
@@ -107,9 +110,9 @@ export function ProjectItem({ project }: { project: Project }) {
                 playsInline
                 muted
                 preload="metadata"
-                poster="/image/profile-jendrik.png"
+                poster={urlFor(project.cover!.asset!._ref).url()}
               >
-                <source src={`${project.thumbnail}#t=0.1`}></source>
+                <source src={`${project.thumbnail}`}></source>
               </video>
             </div>
           </div>

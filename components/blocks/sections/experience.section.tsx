@@ -86,23 +86,23 @@ export function ExperienceSection({ className }: { className?: string }) {
 
   return (
     <section className={cn("py-20", className)}>
-      <div className="mx-auto max-w-7xl grid md:grid-cols-2 gap-x-4">
+      <div className="mx-auto max-w-2xl gridgap-x-4">
         <div className="honorable-mentions">
-          <h3 className="text-4xl font-light mb-8">Honorable Mentions</h3>
+          <h3 className="text-4xl font-light mb-8">Nennenswertes</h3>
           <ul className="experience-list">
             {experiences?.map((experience, index) => (
               <ExperienceItem experience={experience} key={index} />
             ))}
           </ul>
         </div>
-        <div className="skills">
+        {/* <div className="skills">
           <h3 className="text-4xl font-light mb-8">I can support you as</h3>
           <ul className="skill-list">
             {skills?.map((skill, index) => (
               <SkillListItem skill={skill} key={index} />
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     </section>
   );
