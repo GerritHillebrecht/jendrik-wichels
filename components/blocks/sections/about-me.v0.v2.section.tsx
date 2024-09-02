@@ -8,12 +8,7 @@ import { CSSProperties } from "react";
 
 export default function AboutMeSection({ className }: { className?: string }) {
   return (
-    <section
-      className={cn(
-        "relative from-transparent bg-neutral-200 dark:bg-neutral-800 to-gray-100 dark:from-transparent dark:to-neutral-950 py-16 px-4 sm:px-6 lg:px-8",
-        className
-      )}
-    >
+    <section className={cn("relative py-16 px-4 sm:px-6 lg:px-8", className)}>
       <GridPattern
         width={20}
         height={20}

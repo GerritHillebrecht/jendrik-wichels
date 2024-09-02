@@ -16,7 +16,7 @@ export async function ProjectsSection({ className }: { className?: string }) {
   return (
     <section
       id="projects"
-      className={cn("w-full py-12 md:py-16 relative", className)}
+      className={cn("w-full pt-12 md:pt-16 relative", className)}
     >
       <DotPattern
         className={cn(
@@ -25,7 +25,7 @@ export async function ProjectsSection({ className }: { className?: string }) {
       />
       {/* <div className={cn("absolute inset-0", styles.projects)}></div> */}
       <div className="relative z-10">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-80">
               Watch my work
@@ -36,10 +36,6 @@ export async function ProjectsSection({ className }: { className?: string }) {
           </div>
         </div>
         <ProjectList projects={projects} />
-        <Link href="/projects" className={buttonVariants({ variant: "link" })}>
-          Alle Projekte
-          <ArrowRight size={20} className="ml-2" />
-        </Link>
       </div>
     </section>
   );

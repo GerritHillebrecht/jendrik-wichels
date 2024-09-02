@@ -18,7 +18,7 @@ export function HeroHomeSection() {
         refresh
       />
       <video
-        className="absolute inset-0 w-full h-full object-cover z-[-1] group-hover:md:opacity-50 opacity-100 transition-opacity duration-300 dark:opacity-30"
+        className="absolute inset-0 w-full h-full object-cover z-[-1] group-hover:md:opacity-50 opacity-100 transition-opacity duration-300"
         autoPlay
         muted
         loop

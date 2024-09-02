@@ -9,7 +9,7 @@ export function GameSection({ className }: { className?: string }) {
       <div className="text-center max-w-4xl mx-auto my-20">
         <Badge className="mb-4">Kleine Auszeit</Badge>
         <FadeText
-          className="bg-gradient-to-br whitespace-pre-wrap from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent text-balance sm:text-6xl md:text-7xl lg:text-8xl"
+          className="bg-gradient-to-br whitespace-pre-wrap from-black dark:from-white dark:to-white/40 from-30% to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent text-balance sm:text-6xl md:text-7xl lg:text-8xl"
           direction="down"
           framerProps={{
             show: { transition: { delay: 0.2, duration: 0.5 } },

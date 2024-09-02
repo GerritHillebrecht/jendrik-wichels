@@ -1,17 +1,16 @@
 import Link from "next/link";
 
-import { Bebas_Neue } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Instagram } from "lucide-react";
-import VimeoIcon from "@/public/image/icon/vimeo.icon.svg";
-import Image from "next/image";
+import { Bebas_Neue } from "next/font/google";
+import { ThemeSelector } from "./theme-selector";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "./tooltip";
-import { ThemeSelector } from "./theme-selector";
+import { NavbarMenu } from "./navbar.nav-menu";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 
@@ -28,7 +27,8 @@ export function Navbar() {
         </h1>
         <span className="sr-only">Videographer Portfolio</span>
       </Link>
-      <nav className="ml-auto flex items-center gap-4 sm:gap-x-3">
+      <NavbarMenu className="ml-auto" />
+      <nav className="flex items-center gap-4 sm:gap-x-3">
         {/* <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>

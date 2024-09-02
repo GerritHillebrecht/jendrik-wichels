@@ -10,7 +10,7 @@ export async function ProjectList({
   projects: PROJECTS_QUERYResult;
 }) {
   return (
-    <div className="mx-auto grid py-12 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mx-auto grid  sm:grid-cols-2 lg:grid-cols-3">
       {projects?.map((project, index) => (
         <ProjectItem project={project as Project} key={index} />
       ))}
