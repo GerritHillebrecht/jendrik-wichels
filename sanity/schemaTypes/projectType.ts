@@ -42,6 +42,7 @@ export const projectType = defineType({
       name: "desc",
       title: "Beschreibung",
       type: "array",
+      validation: (Rule) => Rule.required(),
       of: [
         defineArrayMember({
           title: "Block",

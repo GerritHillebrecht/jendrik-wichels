@@ -1,10 +1,9 @@
 "use client";
 
 import { BorderBeam } from "@/components/magicui/border-beam";
+import Ripple from "@/components/magicui/ripple";
 import { cn } from "@/lib/utils";
 import { Project } from "@/sanity.types";
-import { Loader } from "lucide-react";
-import { PortableText } from "next-sanity";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -30,10 +29,29 @@ export function ProjectItem({ project }: { project: Project }) {
     }
   }, [isHovered]);
 
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const relativeX = e.clientX - rect.left;
+    const relativeY = e.clientY - rect.top;
+
+    const distanceX = centerX - relativeX;
+    const distanceY = centerY - relativeY;
+
+    const percentX = distanceX / centerX;
+    const percentY = distanceY / centerY;
+
+    setXTilt(percentX * maxTiltDegreeX);
+    setYTilt(percentY * maxTiltDegreeY);
+  }
+
   return (
     <Link
       href={`/project/${project.slug?.current}`}
-      className="relative border-b first-of-type:border-t sm:border-r sm:[&:nth-child(-n+2)]:border-t sm:[&:nth-child(2)]:border-r-0  lg:[&:nth-child(2)]:border-r  lg:[&:nth-child(-n+3)]:border-t lg:[&:nth-child(3)]:border-r-0"
+      className="relative overflow-hidden border-b first-of-type:border-t sm:border-r sm:[&:nth-child(-n+2)]:border-t sm:[&:nth-child(2)]:border-r-0  lg:[&:nth-child(2)]:border-r  lg:[&:nth-child(-n+3)]:border-t lg:[&:nth-child(3)]:border-r-0"
     >
       <div
         className={cn(
@@ -53,24 +71,7 @@ export function ProjectItem({ project }: { project: Project }) {
         }}
       >
         <div
-          onMouseMove={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const relativeX = e.clientX - rect.left;
-            const relativeY = e.clientY - rect.top;
-
-            const distanceX = centerX - relativeX;
-            const distanceY = centerY - relativeY;
-
-            const percentX = distanceX / centerX;
-            const percentY = distanceY / centerY;
-
-            setXTilt(percentX * maxTiltDegreeX);
-            setYTilt(percentY * maxTiltDegreeY);
-          }}
+          onMouseMove={handleMouseMove}
           className="transition-transform group-hover:transition-none"
           style={
             {
@@ -78,6 +79,7 @@ export function ProjectItem({ project }: { project: Project }) {
             } as React.CSSProperties
           }
         >
+          
           <div
             style={{ transformStyle: "preserve-3d" }}
             className="hover:scale-105 transition-all duration-300 border rounded-xl p-2 hover:shadow-lg backdrop-blur-[2px] backdrop-saturate-150"
@@ -89,7 +91,8 @@ export function ProjectItem({ project }: { project: Project }) {
             >
               {isLoading && (
                 <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
-                  <Loader size={24} className="animate-spin" />
+                  <Ripple />
+                  {/* <Loader size={24} className="animate-spin" /> */}
                 </div>
               )}
               <video
@@ -104,21 +107,15 @@ export function ProjectItem({ project }: { project: Project }) {
                 playsInline
                 muted
                 preload="metadata"
+                poster="/image/profile-jendrik.png"
               >
                 <source src={`${project.thumbnail}#t=0.1`}></source>
               </video>
             </div>
           </div>
         </div>
-        <div className="py-4 -mx-8 px-8">
+        <div className="pt-4 pb-6 -mx-8 px-8">
           <h3 className="text-lg font-bold">{project.title}</h3>
-          <div className="line-clamp-2">
-            {project?.desc && (
-              <>
-                <PortableText value={project.desc} />
-              </>
-            )}
-          </div>
         </div>
       </div>
     </Link>

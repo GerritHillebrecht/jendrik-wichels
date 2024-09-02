@@ -29,7 +29,7 @@ export function Navbar() {
         <span className="sr-only">Videographer Portfolio</span>
       </Link>
       <nav className="ml-auto flex items-center gap-4 sm:gap-x-3">
-        <TooltipProvider>
+        {/* <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
               <Link href="https://vimeo.com/jendrik" target="_blank">
@@ -42,7 +42,7 @@ export function Navbar() {
             </TooltipTrigger>
             <TooltipContent>Vimeo</TooltipContent>
           </Tooltip>
-        </TooltipProvider>
+        </TooltipProvider> */}
 
         <TooltipProvider>
           <Tooltip>

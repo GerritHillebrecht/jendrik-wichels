@@ -392,16 +392,36 @@ export type POST_QUERYResult = {
   } | null;
 } | null;
 // Variable: PROJECTS_QUERY
-// Query: *[_type == "project" && defined(slug.current)][0...12]{  _id, title, slug, video}
+// Query: *[_type == "project" && defined(slug.current)][0...12]{  _id, title, desc, slug, video, thumbnail}
 export type PROJECTS_QUERYResult = Array<{
   _id: string;
   title: string | null;
+  desc: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
   slug: Slug | null;
   video: string | null;
+  thumbnail: string | null;
 }>;
 // Variable: PROJECT_QUERY
-// Query: *[_type == "project" && slug.current == $slug][0]{  title, desc, video}
+// Query: *[_type == "project" && slug.current == $slug][0]{  _id, title, desc, video, thumbnail}
 export type PROJECT_QUERYResult = {
+  _id: string;
   title: string | null;
   desc: Array<{
     children?: Array<{
@@ -422,5 +442,6 @@ export type PROJECT_QUERYResult = {
     _key: string;
   }> | null;
   video: string | null;
+  thumbnail: string | null;
 } | null;
 

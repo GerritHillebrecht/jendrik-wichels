@@ -1,21 +1,20 @@
 import Ripple from "@/components/magicui/ripple";
 import ShineBorder from "@/components/magicui/shine-border";
 import { Badge } from "@/components/ui/badge";
-import { PROJECT_QUERYResult, PROJECTS_QUERYResult } from "@/sanity.types";
-import { client, sanityFetch } from "@/sanity/lib/client";
-import { PROJECT_QUERY, PROJECTS_QUERY } from "@/sanity/lib/queries";
-import { ChevronLeft } from "lucide-react";
-import Link from "next/link";
-import { QueryParams } from "sanity";
-import { AnimatedBeamDemo } from "../_components/beam.video";
-import { VideoDock } from "../_components/dock.video";
-import { PortableText } from "@portabletext/react";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { PROJECT_QUERYResult, PROJECTS_QUERYResult } from "@/sanity.types";
+import { client, sanityFetch } from "@/sanity/lib/client";
+import { PROJECT_QUERY, PROJECTS_QUERY } from "@/sanity/lib/queries";
+import { PortableText } from "@portabletext/react";
+import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
+import { QueryParams } from "sanity";
+import { VideoDock } from "../_components/dock.video";
 
 export async function generateStaticParams() {
   const projects = await client.fetch<PROJECTS_QUERYResult>(
@@ -27,6 +26,21 @@ export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project?.slug?.current,
   }));
+}
+
+export async function generateMetadata({ params }: { params: QueryParams }) {
+  console.log("METADATA PARAMS", params);
+
+  const project = await sanityFetch<PROJECT_QUERYResult>({
+    query: PROJECT_QUERY,
+    params,
+  });
+
+  return {
+    title: `${project?.title} - Jendrik Wichels`,
+    // description: project?.desc?.[0]?.children[0]?.text | "",
+    // image: project?.cover?.asset?.url,
+  };
 }
 
 export default async function Page({ params }: { params: QueryParams }) {
@@ -92,9 +106,6 @@ export default async function Page({ params }: { params: QueryParams }) {
             </>
           )}
         </div>
-        {/* <div className="max-w-7xl mx-auto py-20">
-          <AnimatedBeamDemo />
-        </div> */}
       </div>
       <VideoDock />
     </section>

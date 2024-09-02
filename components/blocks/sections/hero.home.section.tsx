@@ -9,7 +9,7 @@ export function HeroHomeSection() {
     "https://player.vimeo.com/progressive_redirect/playback/998718007/rendition/1440p/file.mp4?loc=external&log_user=0&signature=f942d65433f734af1a39405eed8ea9cbf63148b6645f3660b3d7290e2a69e8af";
 
   return (
-    <section className="relative py-12 border-b shadow-xl">
+    <section className="group relative py-12 aspect-[16/6] flex items-center border-b shadow-xl bg-neutral-800 dark:bg-none isolate">
       <Particles
         className="absolute h-full max-h-screen top-0"
         quantity={100}
@@ -18,7 +18,7 @@ export function HeroHomeSection() {
         refresh
       />
       <video
-        className="absolute inset-0 w-full h-full object-cover z-[-1] opacity-50 dark:opacity-30"
+        className="absolute inset-0 w-full h-full object-cover z-[-1] group-hover:md:opacity-50 opacity-100 transition-opacity duration-300 dark:opacity-30"
         autoPlay
         muted
         loop
@@ -26,16 +26,18 @@ export function HeroHomeSection() {
       >
         <source src={heroVideoUrl} type="video/mp4" />
       </video>
-      <div className="flex flex-col items-center text-center py-20 gap-y-8 max-w-5xl mx-auto relative">
-        <HighlightHeadline>Filming | Editing | Grading</HighlightHeadline>
+      <div className="flex flex-col items-center text-center gap-y-8 max-w-5xl mx-auto relative -translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+        <HighlightHeadline>Concept | Filming | Editing</HighlightHeadline>
 
         <FadeText
-          className="bg-gradient-to-br whitespace-pre-wrap dark:from-white from-black from-30% dark:to-white/40 to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent text-balance sm:text-6xl md:text-7xl lg:text-8xl"
+        // from-black 
+        // to-black/40 
+          className="bg-gradient-to-br whitespace-pre-wrap from-white from-30% to-white/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent text-balance sm:text-6xl md:text-7xl lg:text-8xl"
           direction="down"
           framerProps={{
             show: { transition: { delay: 0.2, duration: 0.5 } },
           }}
-          text="Just better visuals."
+          text="Jendrik Wichels Filmemacher"
         />
 
         <FadeText
@@ -44,11 +46,10 @@ export function HeroHomeSection() {
           framerProps={{
             show: { transition: { delay: 0.3, duration: 0.5 } },
           }}
-          text="Looking for a professional videographer? You've come to the right
-          place."
+          text="Richtig Bock auf gute Geschichten und schöne Bilder."
         />
         <Button className="group animate-in fade-in slide-in-from-top !duration-500 delay-700 fill-mode-both">
-          I want you.
+          Contact me
           <ArrowRightIcon className="ml-2 size-4 group-hover:translate-x-1 transition-transform duration-200" />
         </Button>
       </div>

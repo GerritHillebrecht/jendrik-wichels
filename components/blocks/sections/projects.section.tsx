@@ -1,16 +1,12 @@
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { ProjectItem } from "./project.item";
-
-import DotPattern from "@/components/magicui/dot-pattern";
-import {
-  Project,
-  PROJECTS_QUERYResult
-} from "@/sanity.types";
+import { PROJECTS_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/lib/client";
 import { PROJECTS_QUERY } from "@/sanity/lib/queries";
+import { ProjectList } from "./projects/projects.list";
+import DotPattern from "@/components/magicui/dot-pattern";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export async function ProjectsSection({ className }: { className?: string }) {
   const projects = await sanityFetch<PROJECTS_QUERYResult>({
@@ -35,16 +31,11 @@ export async function ProjectsSection({ className }: { className?: string }) {
               Watch my work
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Check out some of my recent video projects and see how I can bring
-              your vision to life.
+              Auswahl meiner aktuellen Projekte.
             </p>
           </div>
         </div>
-        <div className="mx-auto grid py-12 sm:grid-cols-2 lg:grid-cols-3">
-          {projects?.map((project, index) => (
-            <ProjectItem project={project as Project} key={index} />
-          ))}
-        </div>
+        <ProjectList projects={projects} />
         <Link href="/projects" className={buttonVariants({ variant: "link" })}>
           Alle Projekte
           <ArrowRight size={20} className="ml-2" />
