@@ -22,7 +22,7 @@ export function ServicesSection({ className }: { className?: string }) {
               Jendrik begleitet die Filmproduktion professionell durch alle
               Stufen des Prozesses. Von Konzeptionierung über Produktion und
               Dreh bis hin zur Post-Produktion und Schnitt wird eine
-              reibungslose und zielorientierte Zusammenarbeit angestrebt. 💪
+              reibungslose und zielorientierte Zusammenarbeit angestrebt.
             </p>
           </div>
         </div>
@@ -56,10 +56,9 @@ export function ServicesSection({ className }: { className?: string }) {
             </p>
           </div>
           <div className="grid gap-1">
-            <h3 className="text-lg font-bold">Schnitt</h3>
+            <h3 className="text-lg font-bold">Casting</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Beim Schnitt wird das Videomaterial bearbeitet und strukturiert,
-              um eine kohärente und ansprechende Erzählweise zu schaffen.
+            Großes Netzwerk an Schauspieler*innen aus verschiedenen kreativen Bereichen
             </p>
           </div>
           <div className="grid gap-1">
