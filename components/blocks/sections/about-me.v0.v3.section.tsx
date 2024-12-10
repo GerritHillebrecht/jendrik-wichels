@@ -52,7 +52,7 @@ export default function AboutMeTooSection({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              src="/image/profile.jpg"
+              src="/image/profile-social-engagement.jpg"
               // src="/image/profile-jendrik.png"
               alt="Jendrik Wichels, Videographer"
               className="rounded-lg shadow absolute inset-0 w-full h-full object-cover block"
