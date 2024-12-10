@@ -27,8 +27,8 @@ export default function AboutMeSection({ className }: { className?: string }) {
         >
           <div className="space-y-6">
             <h2
-              className="text-4xl lg:text-5xl font-bold text-foreground leading-tight"
-              style={{ "--bg-size": "300%" } as CSSProperties}
+              className="text-4xl lg:text-5xl font-bold text-foreground"
+              style={{ "--bg-size": "300%", lineHeight: "1.25" } as CSSProperties}
             >
               Capturing life&apos;s moments, one{" "}
               <span className="animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent inline">
