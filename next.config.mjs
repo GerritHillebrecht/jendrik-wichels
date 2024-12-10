@@ -16,6 +16,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "www.designenlassen.de",
+      },
+      {
+        protocol: "https",
         hostname: "cdn.sanity.io",
       },
     ],
