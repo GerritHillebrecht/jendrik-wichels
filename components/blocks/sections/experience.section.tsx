@@ -66,7 +66,7 @@ export function ExperienceSection({ className }: { className?: string }) {
       title: "Drone Operator",
       company: "Volkswagen",
       company_logo:
-        "https://www.innovation-group.parts/igp/wp-content/uploads/2020/04/Volkswagen-logo-2019-1500x1500.png",
+        "https://www.designenlassen.de/blog/wp-content/uploads/2024/03/Volkswagen_logo_2019.svg_.png",
       location: "Pikes Peak",
       date: new Date(),
       description: "Description",
