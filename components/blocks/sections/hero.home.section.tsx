@@ -6,7 +6,9 @@ import { ArrowRightIcon } from "lucide-react";
 
 export function HeroHomeSection() {
   const heroVideoUrl =
-    "https://player.vimeo.com/progressive_redirect/playback/998718007/rendition/1440p/file.mp4?loc=external&log_user=0&signature=f942d65433f734af1a39405eed8ea9cbf63148b6645f3660b3d7290e2a69e8af";
+    "/video/hero.mp4";
+  // const heroVideoUrl =
+  //   "https://player.vimeo.com/progressive_redirect/playback/998718007/rendition/1440p/file.mp4?loc=external&log_user=0&signature=f942d65433f734af1a39405eed8ea9cbf63148b6645f3660b3d7290e2a69e8af";
 
   return (
     <section className="group relative py-12 aspect-[16/6] flex items-center border-b shadow-xl bg-neutral-800 dark:bg-none isolate">
